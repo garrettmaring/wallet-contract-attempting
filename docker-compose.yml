@@ -15,14 +15,10 @@ services:
     command: black tests/
     <<: *service
   tests:
-    command: pytest --report-log $ENGI_WORKING_DIR/pytest.json
+    command: pytest -s --report-log $ENGI_WORKING_DIR/pytest.json
     <<: *service
     depends_on:
       - format
-    volumes:
-      - type: volume
-        source: output
-        target: $ENGI_WORKING_DIR
 volumes:
   output:
     external: true
