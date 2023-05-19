@@ -19,6 +19,10 @@ services:
     <<: *service
     depends_on:
       - format
+    volumes:
+      - type: volume
+        source: output
+        target: $ENGI_WORKING_DIR
 volumes:
   output:
     external: true
