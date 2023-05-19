@@ -23,3 +23,7 @@ services:
       - type: volume
         source: output
         target: $ENGI_WORKING_DIR
+volumes:
+  output:
+    external: true
+    name: $ENGI_WORKING_VOL
