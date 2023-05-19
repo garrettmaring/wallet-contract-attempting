@@ -19,6 +19,7 @@ services:
     <<: *service
     depends_on:
       - format
+    mem_limit: 1g
     volumes:
       - type: volume
         source: output

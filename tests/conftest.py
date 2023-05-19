@@ -14,8 +14,9 @@ def isolate(fn_isolation):
 def token(Token, accounts):
     return Token.deploy("Test Token", "TST", 18, 1e21, {"from": accounts[0]})
 
+
 @pytest.fixture(scope="module")
 def wallet(Wallet, accounts):
-    wallet = Wallet.deploy({'from': accounts[0]})
+    wallet = Wallet.deploy({"from": accounts[0]})
     accounts[9].transfer(wallet.address, 5e18)
     return wallet
