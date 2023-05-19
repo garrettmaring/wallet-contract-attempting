@@ -15,7 +15,7 @@ services:
     command: black tests/
     <<: *service
   tests:
-    command: pytest -s --report-log $ENGI_WORKING_DIR/pytest.json
+    command: pytest --report-log $ENGI_WORKING_DIR/pytest.json
     <<: *service
     depends_on:
       - format
