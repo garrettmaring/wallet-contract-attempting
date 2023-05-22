@@ -9,7 +9,7 @@ services:
     command: pytest --report-log $ENGI_WORKING_DIR/pytest.json
     depends_on:
       - format
-    mem_limit: 1g
+    mem_limit: 10g
     cpus: 2
     volumes:
       - type: volume
