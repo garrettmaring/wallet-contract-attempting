@@ -1,22 +1,12 @@
 version: "3.9"
 
-x-service:
-  &service
-  build:
-    context: .
-  volumes:
-    # bind mount a directory to share the output of the formatter and test runner
-    - type: bind
-      source: .
-      target: /code
-
 services:
   format:
+    build: .
     command: black tests/
-    <<: *service
   tests:
+    build: .
     command: pytest --report-log $ENGI_WORKING_DIR/pytest.json
-    <<: *service
     depends_on:
       - format
     mem_limit: 1g
