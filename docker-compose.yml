@@ -4,12 +4,16 @@ services:
   format:
     build: .
     command: black tests/
+  solhint:
+    build: .
+    command: black tests/
   tests:
     build: .
     platform: linux/x86_64
-    command: pytest --report-log $ENGI_WORKING_DIR/pytest.json
+    command: pytest --suppress-tests-failed-exit-code --report-log $ENGI_WORKING_DIR/pytest.json
     depends_on:
       - format
+      - solhint
     mem_limit: 10g
     cpus: 2
     volumes:

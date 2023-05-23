@@ -4,10 +4,10 @@ RUN apt-get update && apt-get install -y curl python3.10 python3-pip python3.10-
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install nodejs
 
-RUN npm install ganache --global
+RUN npm install ganache solhint --global
 
 WORKDIR /code
 
 COPY . .
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && solhint --init
