@@ -15,6 +15,10 @@ contract Wallet {
     }
     
     function changeOwner(address _to) onlyowner external {
+        require(_to != owner, "Already owner!");
+        address old_owner = owner;
+        owner = _to;
+        emit OwnerChanged(old_owner, owner);
     }
 
     function transfer(address payable _to, uint amount) onlyowner public {
